@@ -324,6 +324,14 @@ negated
 beAddedToEntero: anEntero 
 	^self subclassResponsibility ! !
 
+!Numero methodsFor: 'testing' stamp: 'RT 5/31/2021 21:36:02'!
+beSubstractedToEntero: anEntero
+	^self subclassResponsibility ! !
+
+!Numero methodsFor: 'testing' stamp: 'RT 5/31/2021 21:36:50'!
+dividesAnEntero: anEntero
+	^self subclassResponsibility ! !
+
 !Numero methodsFor: 'testing' stamp: 'NR 9/23/2018 23:36:49'!
 isNegative
 
@@ -338,6 +346,10 @@ isOne
 isZero
 
 	self subclassResponsibility ! !
+
+!Numero methodsFor: 'testing' stamp: 'RT 5/31/2021 21:36:58'!
+multiplyAnEntero: anEntero
+	^self subclassResponsibility ! !
 
 
 !Numero methodsFor: 'private' stamp: 'HernanWilkinson 5/7/2016 22:48'!
