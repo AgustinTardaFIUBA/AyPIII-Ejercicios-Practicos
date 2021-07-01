@@ -14,163 +14,164 @@ setUp
 	roverInCoordinatesOriginPointingWest := Rover landedIn: (0@0) pointing: WestDirection .
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 13:32:23'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:56:49'!
 test01RoverStartsInAnInitialCoordinatesXAndYPointingCertainCardinalPoint 
 	| rover |
+	"El proposito de este test es la inicializacion correcta del Rover por esto queda explicita la creacion del mismo
+	y no se utiliza una variable inicializada en el setUp"
+	rover := Rover landedIn: (1@1) pointing: NorthDirection.
 	
-	rover := Rover landedIn: (0@0) pointing: NorthDirection.
-	
-	self assertRover: rover isInCoordenates: (0@0) pointing: NorthDirection.! !
+	self assertRover: rover isInCoordenates: (1@1) pointing: NorthDirection.! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 15:18:50'!
-test02RoverRecieveAnEmptyCommandStringAndDontMove
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
+test02RoverReceiveAnEmptyCommandStringAndDontMove
 	
-	roverInCoordinatesOriginPointingNorth recieveInstructions: ''.
+	roverInCoordinatesOriginPointingNorth receiveInstructions: ''.
 	
 	self assertRover: roverInCoordinatesOriginPointingNorth isInCoordenates: (0@0) pointing: NorthDirection.
 	
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 15:19:15'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test03RoverPointingNorthReceiveAForwardCommandAndMovesNorthPointingNorth
 
-	roverInCoordinatesOriginPointingNorth recieveInstructions: 'f'.
+	roverInCoordinatesOriginPointingNorth receiveInstructions: 'f'.
 		
 	self assertRover: roverInCoordinatesOriginPointingNorth isInCoordenates: (0@1) pointing: NorthDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:21:16'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test04RoverPointingNorthReceiveABackwardCommandAndMovesSouthPointingNorth
 
-	roverInCoordinatesOriginPointingNorth recieveInstructions: 'b'.
+	roverInCoordinatesOriginPointingNorth receiveInstructions: 'b'.
 		
 	self assertRover: roverInCoordinatesOriginPointingNorth isInCoordenates: (0@-1) pointing: NorthDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:21:57'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test05RoverPointingEastReceiveAForwardCommandAndMovesEastPointingEast
 
-	roverInCoordinatesOriginPointingEast recieveInstructions: 'f'.
+	roverInCoordinatesOriginPointingEast receiveInstructions: 'f'.
 		
 	self assertRover: roverInCoordinatesOriginPointingEast isInCoordenates: (1@0) pointing: EastDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:22:16'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test06RoverPointingEastReceiveABackwardCommandAndMovesWestPointingEast
 
-	roverInCoordinatesOriginPointingEast recieveInstructions: 'b'.
+	roverInCoordinatesOriginPointingEast receiveInstructions: 'b'.
 		
 	self assertRover: roverInCoordinatesOriginPointingEast isInCoordenates: (-1@0) pointing: EastDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:22:53'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test07RoverPointingWestReceiveAForwardCommandAndMovesWestPointingWest
 
-	roverInCoordinatesOriginPointingWest recieveInstructions: 'f'.
+	roverInCoordinatesOriginPointingWest receiveInstructions: 'f'.
 		
 	self assertRover: roverInCoordinatesOriginPointingWest isInCoordenates: (-1@0) pointing: WestDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:23:38'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test08RoverPointingWestReceiveABackwardCommandAndMovesEastPointingWest
 	
-	roverInCoordinatesOriginPointingWest recieveInstructions: 'b'.
+	roverInCoordinatesOriginPointingWest receiveInstructions: 'b'.
 		
 	self assertRover: roverInCoordinatesOriginPointingWest isInCoordenates: (1@0) pointing: WestDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:24:03'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test09RoverPointingSouthReceiveAForwardCommandAndMovesSouthPointingSouth
 	
-	roverInCoordinatesOriginPointingSouth recieveInstructions: 'f'.
+	roverInCoordinatesOriginPointingSouth receiveInstructions: 'f'.
 		
 	self assertRover: roverInCoordinatesOriginPointingSouth isInCoordenates: (0@-1) pointing: SouthDirection .
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:24:28'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test10RoverPointingSouthReceiveABackwardCommandAndMovesNorthPointingSouth
 	
-	roverInCoordinatesOriginPointingSouth recieveInstructions: 'b'.
+	roverInCoordinatesOriginPointingSouth receiveInstructions: 'b'.
 		
 	self assertRover: roverInCoordinatesOriginPointingSouth isInCoordenates: (0@1) pointing: SouthDirection .
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:25:09'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test11RoverPointingNorthReceiveATurnLeftCommandAndRotate90DegreesPointingWest
 	
-	roverInCoordinatesOriginPointingNorth recieveInstructions: 'l'.
+	roverInCoordinatesOriginPointingNorth receiveInstructions: 'l'.
 		
 	self assertRover: roverInCoordinatesOriginPointingNorth isInCoordenates: (0@0) pointing: WestDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:25:28'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test12RoverPointingNorthReceiveATurnRightCommandAndRotate90DegreesPointingEast
 	
-	roverInCoordinatesOriginPointingNorth recieveInstructions: 'r'.
+	roverInCoordinatesOriginPointingNorth receiveInstructions: 'r'.
 		
 	self assertRover: roverInCoordinatesOriginPointingNorth isInCoordenates: (0@0) pointing: EastDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:25:58'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test13RoverPointingEastReceiveATurnLeftCommandAndRotate90DegreesPointingNorth
 
-	roverInCoordinatesOriginPointingEast recieveInstructions: 'l'.
+	roverInCoordinatesOriginPointingEast receiveInstructions: 'l'.
 		
 	self assertRover: roverInCoordinatesOriginPointingEast isInCoordenates: (0@0) pointing: NorthDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:26:19'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test14RoverPointingEastReceiveATurnRightCommandAndRotate90DegreesPointingSouth
 	
-	roverInCoordinatesOriginPointingEast recieveInstructions: 'r'.
+	roverInCoordinatesOriginPointingEast receiveInstructions: 'r'.
 		
 	self assertRover: roverInCoordinatesOriginPointingEast isInCoordenates: (0@0) pointing: SouthDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:27:02'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test15RoverPointingSouthReceiveATurnLeftCommandAndRotate90DegreesPointingEast
 
-	roverInCoordinatesOriginPointingSouth recieveInstructions: 'l'.
+	roverInCoordinatesOriginPointingSouth receiveInstructions: 'l'.
 		
 	self assertRover: roverInCoordinatesOriginPointingSouth isInCoordenates: (0@0) pointing: EastDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:27:19'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test16RoverPointingSouthReceiveATurnRightCommandAndRotate90DegreesPointingWest
 	
-	roverInCoordinatesOriginPointingSouth recieveInstructions: 'r'.
+	roverInCoordinatesOriginPointingSouth receiveInstructions: 'r'.
 		
 	self assertRover: roverInCoordinatesOriginPointingSouth isInCoordenates: (0@0) pointing: WestDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:27:58'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test17RoverPointingWestReceiveATurnLeftCommandAndRotate90DegreesPointingSouth
 
-	roverInCoordinatesOriginPointingWest recieveInstructions: 'l'.
+	roverInCoordinatesOriginPointingWest receiveInstructions: 'l'.
 		
 	self assertRover: roverInCoordinatesOriginPointingWest isInCoordenates: (0@0) pointing: SouthDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:28:11'!
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:47:55'!
 test18RoverPointingWestReceiveATurnRightCommandAndRotate90DegreesPointingNorth
 	
-	roverInCoordinatesOriginPointingWest recieveInstructions: 'r'.
+	roverInCoordinatesOriginPointingWest receiveInstructions: 'r'.
 		
 	self assertRover: roverInCoordinatesOriginPointingWest isInCoordenates: (0@0) pointing: NorthDirection.
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:28:46'!
-test19RoverReciveAStringWithMultipleCommandsAndPerformThemCorrectly
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:48:16'!
+test19RoverReceiveAStringWithMultipleCommandsAndPerformThemCorrectly
 	
-	roverInCoordinatesOriginPointingNorth recieveInstructions: 'ffrfflflbbf'.
+	roverInCoordinatesOriginPointingNorth receiveInstructions: 'ffrfflflbbf'.
 		
 	self assertRover: roverInCoordinatesOriginPointingNorth isInCoordenates: (3@3) pointing: WestDirection .
 ! !
 
-!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 16:29:09'!
-test20RoverDoNotPerformCommandsBeforeRecievingAWrongCharacterInTheStringOfCommandsRecieved
+!MarsRoverTest methodsFor: 'test' stamp: 'AT 7/1/2021 17:48:55'!
+test20RoverDoNotPerformCommandsBeforeReceivingAWrongCharacterInTheStringOfCommands
 	
-	roverInCoordinatesOriginPointingNorth recieveInstructions: 'ffrffnflbbf'.
+	roverInCoordinatesOriginPointingNorth receiveInstructions: 'ffrffnflbbf'.
 		
 	self assertRover: roverInCoordinatesOriginPointingNorth isInCoordenates: (2@2) pointing: EastDirection.
 ! !
@@ -486,8 +487,8 @@ convertToCommands: aStringOfCommands
 executeCommands: aCommandsCollection
 	aCommandsCollection do: [:command| command beExcutedBy: self]! !
 
-!Rover methodsFor: 'commanding' stamp: 'AT 7/1/2021 14:58:57'!
-recieveInstructions: aStringOfCommands
+!Rover methodsFor: 'commanding' stamp: 'AT 7/1/2021 17:47:55'!
+receiveInstructions: aStringOfCommands
 	 |executableCommands|
 	
 	executableCommands := self convertToCommands: aStringOfCommands .
